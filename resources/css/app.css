@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* // importing core styling file */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@layer utilities {
+
+*:focus,
+*:active {
+    outline: none !important;
+    -webkiit-tap-highlight-color: transparent;
+}
+
+.content {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    place-items: center;
+    /* background: linear-gradient(315deg, #fff, #d7e); */
+    background: linear-gradient(315deg, #fff, #d7e1ec);
+}
+
+.wrapper {
+    display: inline-flex;
+    list-style: none;
+}
+
+.wrapper .icon {
+    position: relative;
+    background: #fff;
+    border-radius: 50%;
+    padding: 15px;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #fff;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.365, 1.55);
+}
+
+.wrapper .tooltip::after {
+    position: absolute !important;
+    content: '' !important;
+    height: 8px !important;
+    width: 8px !important;
+    background: #ec0000 !important;
+    bottom: -3px !important;
+    left: 50% !important;
+    transform: translate(-50%) rotate(45deg) !important;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.365, 1.55) !important;
+}
+
+.wrapper .icon:hover .tooltip {
+    top: -45px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.wrapper.icon:hover span,
+.wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.facebook {
+    color: #1877f2;
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+    background: #1877f2;
+    color: #fff;
+}
+
+.twitter {
+    color: #1da1f2;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+    background: #1da1f2;
+    color: #fff;
+}
+
+.instagram {
+    color: #e4405f;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+    background: #e4405f;
+    color: #fff;
+}
+
+.github {
+    color: #333;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+    background: #333;
+    color: #fff;
+}
+
+.youtube {
+    color: #cd201f;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+    background: #cd201f;
+    color: #fff;
+}
+
+
+
+/* custom-styles.css */
+.card {
+    z-index: 0 !important;
+}
+
+    .custom-link {
+        @apply text-2xl text-indigo-700;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .custom-link::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: transparent;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+
+    .custom-link:hover {
+        @apply text-indigo-500 font-semibold;
+    }
+
+    .custom-link:hover::before {
+        transform: scaleX(1);
+        background-color: #22d3aa;
+        /* Set the color you want for the underline on hover */
+    }
+
+}
